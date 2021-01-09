@@ -1,0 +1,39 @@
+<launch>
+
+  <node 
+	pkg="macaron" 
+	type="lanetracker.py" 
+	name="lanetracker">
+  </node>
+
+
+  <node 
+	pkg="macaron" 
+	type="path_planning" 
+	name="path_planner"
+	output="screen"/>
+  <node 
+	pkg="insgps_y" 
+	type="GPSTxT_reader.py" 
+	name="GPSTxT"/>
+
+  <node 
+	pkg="insgps_y" 
+	type="insgps_y_node" 
+	name="insgps_y_node"/>
+
+
+</launch>
+
+<!-- prebious...
+  <node 
+      pkg="sicktoolbox_wrapper" 
+      type="sicklms" 
+      name="sick_lms_scan_publisher"
+      output="screen">
+    <param name="port" value="/dev/lms200"/>
+    <param name="baud" value="38400"/>
+
+  </node>
+  -->
+

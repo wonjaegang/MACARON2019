@@ -1,0 +1,12 @@
+<launch>
+  <node 
+	pkg="macaron" 
+	type="serial_example_node" 
+	name="erp42_com"/>
+
+  <node 
+	pkg="macaron" 
+	type="puppet" 
+	name="control"/>
+
+</launch>

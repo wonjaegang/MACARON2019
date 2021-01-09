@@ -1,0 +1,44 @@
+로스에서 보정된 gps값 받을 수 있게 만들기
+받은 gps,IMU,scan 기반으로 로컬라이제이션 시작.
+
+차선따라서 라이다 피해가게 만들기
+
+
+-----------------------------------------------------------
+포트 고정하는 법
+cd /etc/udev/rules.d 로 이동
+목요일에 sudo gedit 99-usb-serial.rules 로 이동
+현재 차량과 라이다는 포트값을 알아내어 고정해둔 상태이고,
+노드에서 image_raw를 보내주는 노드는 웹
+(카메라 고정은 지훈이가 알려줄 예정)
+
+---------------------------------------------------------------
+usb 포트 명령어 정리
+udevadm info -a /dev/ttyACM1
+
+포트 상태 알아내기 : lsusb
+연결된 usb 번호 알아내기 : ls /dev/ttyUSB*
+포트에 권한부여 chmod 777(최대권한)
+포트의 상태 전수조사 : dmesg | grep tty
+포트 설정 확인하기 : stty -F /dev/ttyS0
+포트의 속도 변경 : sudo stty 38400 < /dev/ttyUSB1
+지금 해둔 설정으로는 아마 속도는 자동으로 인식될 것. 안될 때 이런 방법으로
+포트 고정을 해둔 상태라면, /dev/erp42 /dev/lms200 으로 속도설정
+------------------------------------------------------------------
+웹캠 활성화 하는 법
+ls -ltr /dev/video* 명령어로 연결된 카메라들 확인하기
+https://github.com/bosch-ros-pkg/usb_cam 이거 git clone
+
+
+rospack fnd cv_bridge 입력(의존성 패키지)
+kinetic/share/cv_bridge 에 있으면 그냥 ㄱ 없으면
+sudo apt-get install ros-kinetic-cv-bridge
+
+카메라 구동을 위해서는,
+rosrun uvc_camera uvc_camera_node
+카메라 캘리브레이션은 로스책 218p 참고
+
+rosrun image_view image_view image=/image_raw로 확인가능
+네임 스페이스를 짜주어야 한다 이말입니다!
+
+opencv 리눅스 설치법은 두인이의 블로그 참조

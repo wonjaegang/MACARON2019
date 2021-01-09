@@ -1,0 +1,14 @@
+ACTION=="add", KERNEL=="ttyUSB*", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", MODE:="0777", SYMLINK+="erp42"
+
+ACTION=="add", KERNEL=="ttyUSB*", ATTRS{idVendor}=="067b", ATTRS{idProduct}=="2303", MODE:="0777", SYMLINK+="lms200"
+
+ACTION=="add", KERNEL=="video*", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="0826", MODE:="0777", SYMLINK+="linetracker_old"
+
+ACTION=="add", KERNEL=="video*", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="0843", MODE:="0777", SYMLINK+="linetracker"
+
+ACTION=="add",KERNEL=="ttyUSB*", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001",MODE:="0777", SYMLINK+="gps"
+
+ACTION=="add",ATTRS{idVendor}=="1546", ATTRS{idProduct}=="01a9", MODE:="0777"
+
+SUBSYSTEM=="usb", ACTION=="add", ATTR{idVendor}=="19a2", ATTR{idProduct}=="5001", GROUP="plugdev"
+

@@ -1,0 +1,12 @@
+float64 acc_x
+float64 acc_y
+float64 acc_z
+float64 vel_x
+float64 vel_y
+float64 vel_z
+float64 pos_x
+float64 pos_y
+float64 pos_z
+float64 roll
+float64 pitch
+float64 yaw

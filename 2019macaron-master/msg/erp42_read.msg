@@ -1,0 +1,12 @@
+bool read_AorM
+bool read_E_stop
+int8 read_gear
+int16 read_speed
+int16 read_brake
+int64 read_ENC
+int32 read_steer
+float64 read_s
+float64 read_l
+float64 read_yaw
+float64 read_velocity
+float64 read_accel

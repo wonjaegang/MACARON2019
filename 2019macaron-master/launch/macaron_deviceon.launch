@@ -1,0 +1,61 @@
+<launch>
+
+  <include file="$(find sick_tim)/launch/sick_tim571_2050101.launch" />
+  <include file="$(find nmea_navsat_driver)/launch/nmea_serial_driver.launch" />
+
+ <group ns="camera1">
+  <node name="usb_cam" 
+	pkg="usb_cam" 
+	type="usb_cam_node">
+    <param name="video_device" value="/dev/linetracker" />
+    <param name="image_width" value="1280" />
+    <param name="image_height" value="720" />
+    <param name="framerate" value="12" />
+    <param name="autofocus" value="true" />
+    <param name="pixel_format" value="yuyv" />
+    <param name="camera_frame_id" value="usb_cam1" />
+    <param name="io_method" value="mmap"/>
+  </node>
+ </group>
+
+  <node 
+	pkg="macaron" 
+	type="serial_example_node" 
+	name="erp42_com"/>
+
+  <include file="$(find ocams_1cgn)/launch/ocams_ros.launch" />
+
+
+</launch>
+
+<!-- prebious...
+  <node 
+      pkg="sicktoolbox_wrapper" 
+      type="sicklms" 
+      name="sick_lms_scan_publisher"
+      output="screen">
+    <param name="port" value="/dev/lms200"/>
+    <param name="baud" value="38400"/>
+
+  </node>
+
+
+
+<group ns="camera2">
+  <node name="usb_cam" 
+	pkg="usb_cam" 
+	type="usb_cam_node">
+    <param name="video_device" value="/dev/traffictracker" />
+    <param name="image_width" value="1280" />
+    <param name="image_height" value="720" />
+    <param name="framerate" value="12" />
+    <param name="autofocus" value="true" />
+    <param name="pixel_format" value="yuyv" />
+    <param name="camera_frame_id" value="usb_camt" />
+    <param name="io_method" value="mmap"/>
+  </node>
+ </group>
+
+
+  -->
+
