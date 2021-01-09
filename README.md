@@ -1,1 +1,2 @@
-# MACARON2019 - Dongguck University Autonomous Driving Club
+# MACARON2019
+Dongguck University Autonomous Driving Club
